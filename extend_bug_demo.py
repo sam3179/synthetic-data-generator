@@ -6,10 +6,10 @@ from sdgx.utils import download_demo_data
 
 # get a metadata, I use a demo dataset
 # every dataset is OK
-p = download_demo_data()
+#p = download_demo_data()
 # This is a new sample csv that I made to see if there was somehow anything wrong with the demo data
-# student_data = Path("C:\\Users\\15084\\Desktop\\BSU Classes\\Spring24\\COMP490\\Project2\\synthetic-data-generator\\extendBug.csv")
-df = pd.read_csv(p)
+student_data = Path("C:\\Users\\15084\\Desktop\\BSU Classes\\Spring24\\COMP490\\Project2\\synthetic-data-generator\\extendBug.csv")
+df = pd.read_csv(student_data)
 m = Metadata.from_dataframe(df)
 
 # I add a k-v pair
@@ -18,6 +18,7 @@ m.add('a', "something")
 m.add("Eric", [23, "Business"])
 # then save the model
 m.save(Path('here.json'))
+m.save_extend(Path('extend.json'))
 
 print(m.get('a'))
 """The output is:
@@ -28,7 +29,7 @@ print(m.get('a'))
 n = Metadata.load(Path("here.json"))
 print(f"type of n: {type(n)}")
 # the value "something" is missing
-print(n.get('a'))
+print(f'Printing n.get(a): {n.get('a')}')
 """The output is:
 set()
 """
