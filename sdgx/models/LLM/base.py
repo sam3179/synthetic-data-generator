@@ -4,6 +4,7 @@ from sdgx.utils import logger
 
 
 class LLMBaseModel(SynthesizerModel):
+    print("INSIDE class LLMBaseModel")
     """
     This is a base class for generating synthetic data using LLM (Large Language Model).
 
