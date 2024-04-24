@@ -1,5 +1,7 @@
 import pandas as pd
 
+from add_column_descriptions import AddColumnDescriptions
+
 from sdgx.data_connectors.csv_connector import CsvConnector
 from sdgx.models.LLM.single_table.gpt import SingleTableGPTModel
 from sdgx.models.components.sdv_ctgan.data_transformer import DataTransformer
@@ -36,8 +38,8 @@ synthesizer.fit()
 print("creating sampled data")
 sampled_data = synthesizer.sample(1000)
 print(sampled_data)
-sampled_data_df = pd.DataFrame(sampled_data)
-print(sampled_data_df.info())
 
 # model = SingleTableGPTModel()
 
+col_descriptions = AddColumnDescriptions(sampled_data)
+col_descriptions.add_column_descriptions()
