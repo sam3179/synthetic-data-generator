@@ -60,6 +60,8 @@ class Synthesizer:
             synthesizer.fit()
             sampled_data = synthesizer.sample(1000)
     """
+    # new logger
+    logger.info("new logger-Initializing Synthesizer")
 
     METADATA_SAVE_NAME = "metadata.json"
     """
